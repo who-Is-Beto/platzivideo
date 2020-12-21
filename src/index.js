@@ -1,6 +1,6 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import HelloWorld from './components/helloworld'
+import App from './containers/App';
 
-ReactDOM.render(<HelloWorld hello='Hola mundo cabrones' />, document.getElementById('app'))
+ReactDOM.render(<App />, document.getElementById('app'));
