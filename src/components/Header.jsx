@@ -5,13 +5,16 @@
 import React from 'react';
 import '../assets/styles/components/header/_header.scss';
 
+import logo from '../assets/static/logo-platzi-video-BW2.png';
+import userImage from '../assets/static/user-icon.png';
+
 function Header() {
   return (
     <header className="header">
-      <img className="header__img" src="https://raw.githubusercontent.com/platzi/curso-frontend-escuelajs/master/platzi-video/curso-frontend-developer/assets/logo-platzi-video-BW2.png" alt="Platzi Video" />
+      <img className="header__img" src={logo} alt="Platzi Video" />
       <div className="header__menu">
         <div className="header__menu--profile">
-          <img src="https://raw.githubusercontent.com/platzi/curso-frontend-escuelajs/master/platzi-video/curso-frontend-developer/assets/user-icon.png" alt="" />
+          <img src={userImage} alt="" />
           <p>Perfil</p>
         </div>
         <ul>
