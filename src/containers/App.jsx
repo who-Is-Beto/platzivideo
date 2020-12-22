@@ -1,6 +1,7 @@
+/* eslint-disable consistent-return */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable array-callback-return */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import '../assets/styles/App.scss';
 import '../assets/styles/Media.scss';
@@ -10,39 +11,29 @@ import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarousuelItem';
 import Footer from '../components/Footer';
+import useInitialState from '../hooks/useInitialState';
+
+const API = 'http://localhost:3000/initalState';
 
 const App = () => {
-
-  const [videos, setVideos] = useState({ mylist: [], trends: [], originals: [] });
-
-  useEffect(() => {
-    fetch('http://localhost:3000/initalState')
-      .then((response) => response.json())
-      .then((data) => setVideos(data))
-      .catch((error) => console.error(error));
-  }, []);
-
-  return (
+  const initialState = useInitialState(API);
+  return initialState.length === 0 ? <h1> Loading... </h1> : (
     <>
       <Header />
       <Search />
-      <Categories title='Mi lista'>
-        <Carousel>
-          {videos.mylist.map((item) => <CarouselItem key={item.id} {...item} />)}
-        </Carousel>
-      </Categories>
-
-      <Categories title='Tendencias'>
-        <Carousel>
-          {videos.trends.map((item) => <CarouselItem key={item.id} {...item} />)}
-        </Carousel>
-      </Categories>
-
-      <Categories title='Oriiginales de PLatzifix'>
-        <Carousel>
-          {videos.originals.map((item) => <CarouselItem key={item.id} {...item} />)}
-        </Carousel>
-      </Categories>
+      {
+        Object.keys(initialState).map((category) => {
+          if (initialState[category].length) {
+            return (
+              <Categories key={category} title={category}>
+                <Carousel>
+                  {initialState[category].map((item) => <CarouselItem key={item.id} {...item} />)}
+                </Carousel>
+              </Categories>
+            );
+          }
+        })
+      }
       <Footer />
     </>
   );
