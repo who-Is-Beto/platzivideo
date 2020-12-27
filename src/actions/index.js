@@ -9,3 +9,8 @@ export const deleteFavorite = (payLoad) => ({
   type: 'DELETE_FAVORITE',
   payLoad,
 });
+
+export const loginRequest = (payLoad) => ({
+  type: 'LOGIN_REQUEST',
+  payLoad,
+});

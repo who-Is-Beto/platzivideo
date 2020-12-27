@@ -1,23 +1,57 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/button-has-type */
 
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { loginRequest } from '../actions';
 
 import GoogleIcon from '../assets/static/google-icon.png';
 import TwitterIcon from '../assets/static/twitter-icon.png';
 
 import '../assets/styles/components/Login/Login.scss';
 
-function Login() {
+function Login(props) {
+
+  const [values, setValues] = useState({
+    email: '',
+  });
+
+  const handleInput = (event) => {
+    setValues({
+      ...values,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.loginRequest(values);
+    props.history.push('/');
+  };
+
   return (
     <section className='login'>
       <section className='login__container'>
         <h2>Inicia sesión</h2>
-        <form className='login__container--form'>
-          <input className='input' type='text' placeholder='Correo' />
-          <input className='input' type='password' placeholder='Contraseña' />
+        <form className='login__container--form' onSubmit={handleSubmit}>
+          <input
+            name='email'
+            className='input'
+            type='text'
+            placeholder='Correo'
+            onChange={handleInput}
+          />
+
+          <input
+            name='password'
+            className='input'
+            type='password'
+            placeholder='Contraseña'
+            onChange={handleInput}
+          />
           <button className='button'>Iniciar sesión</button>
           <div className='login__container--remember-me'>
             <label>
@@ -48,4 +82,9 @@ function Login() {
   );
 }
 
-export default Login;
+const mapDispatchToProps = {
+  loginRequest,
+
+};
+
+export default connect(null, mapDispatchToProps)(Login);
