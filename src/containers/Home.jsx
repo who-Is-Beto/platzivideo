@@ -26,7 +26,7 @@ const Home = ({ myList, trends, originals }) => {
         </Categories>
       )}
 
-      {myList.length > 0 && (
+      {(
         <Categories title='Tendencias'>
           <Carousel>
             {
@@ -36,7 +36,7 @@ const Home = ({ myList, trends, originals }) => {
         </Categories>
       )}
 
-      {myList.length > 0 && (
+      {(
         <Categories title='Originales'>
           <Carousel>
             {
