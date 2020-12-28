@@ -10,7 +10,17 @@ export const deleteFavorite = (payLoad) => ({
   payLoad,
 });
 
-export const loginRequest = (payLoad) => ({
+export const loginRequest = (payload) => ({
   type: 'LOGIN_REQUEST',
-  payLoad,
+  payload,
+});
+
+export const logoutRequest = (payload) => ({
+  type: 'LOGOUT_REQUEST',
+  payload,
+});
+
+export const registerRequest = (payload) => ({
+  type: 'REGISTER_REQUEST',
+  payload,
 });
