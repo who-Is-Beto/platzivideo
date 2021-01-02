@@ -17,6 +17,8 @@
 <div>
 This is my most difficult project and has been created using: <br />
 -React ⚛️ <br />
+-React router ➡️ <br />
+-Redux ⚛️ <br />
 -Webpack 🔨 <br />
 -SASS ✏️ <br />
 
