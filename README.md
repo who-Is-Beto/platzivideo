@@ -9,11 +9,11 @@
 
 <div>
 
-<img src="https://live.staticflickr.com/65535/50789179491_70497464a5_b.jpg" width="350px" height="700px" />
+<img src="https://live.staticflickr.com/65535/50789179491_70497464a5_b.jpg" width="300px" height="650px" />
 
-<img src="https://live.staticflickr.com/65535/50789179491_70497464a5_b.jpg" width="350px" height="700px" />
+<img src="https://live.staticflickr.com/65535/50789179491_70497464a5_b.jpg" width="300px" height="650px" />
 
-<img src="https://live.staticflickr.com/65535/50789287347_7f87ef9d06_b.jpg" width="350px" height="700px" />
+<img src="https://live.staticflickr.com/65535/50789287347_7f87ef9d06_b.jpg" width="300px" height="650px" />
 <div>
 This is my most difficult project and has been created using: <br />
 -React ⚛️ <br />
